@@ -46,7 +46,7 @@ public class Main {
         System.out.println("Permitidos: " + totalPermitidos);
         System.out.println("Denegados: " + totalDenegados);
 
-        double porcentaje=0; //Falta hacer el calculo de porcentaje
-        System.out.println("Porcentaje permitidos: %"+ porcentaje);
+        double porcentajePermitidos = 0; //Falta hacer el calculo de porcentaje
+        System.out.println("Porcentaje permitidos: 2f%%"+ porcentajePermitidos+"%");
     }
 }
