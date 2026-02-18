@@ -1,21 +1,14 @@
- public class  U2Service {
+import java.util.IllegalFormatCodePointException;
+
+public class  U2Service {
     // ID válido: exactamente 8 caracteres alfanuméricos (A-Z, a-z, 0-9), sin espacios.
     public static boolean esIdValido(String id) {
         if (id == null || id.isBlank() || id.length() != 8) return false;
 
-        // solo alfanumérico
-        for (int i = 0; i < id.length(); i++) {
-            char ch = id.charAt(i);
-            boolean esLetra = (ch >= 'A' && ch <= 'Z') || (ch >= 'a' && ch <= 'z');
+        if (!id.matches("^[A-Za-z0-9]")){
+            return true;
 
-            if (!esLetra) return false;
-
-             char car = id.charAt(0); // primer carácter
-             boolean esDigito = (car >= '0' && car <= '9');
-
-            if (!esDigito) return false;
         }
-
         return false; // TODO
     }
 

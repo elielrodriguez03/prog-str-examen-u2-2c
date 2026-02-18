@@ -15,7 +15,19 @@ public class Main {
 
             if (id.equalsIgnoreCase("FIN")) break;
 
+            // Si ID inválido -> continue (no cuenta como registro)
+            if (!U2Service.esIdValido(id)) {
+                System.out.println("ID inválido");
+                continue;
+            }
+
             System.out.print("Hora (0..23): ");
+
+            if (!sc.hasNextInt()){
+                System.out.println("Hora inválida");
+                return;
+            }
+
             int hora = sc.nextInt();
 
             // Si hora fuera 0..23 -> terminar main
@@ -24,11 +36,11 @@ public class Main {
                 return;
             }
 
-            // Si ID inválido -> continue (no cuenta como registro)
-            if (!U2Service.esIdValido(id)) {
-                System.out.println("ID inválido");
-                continue;
+            if (!U2Service.esHorarioPermitido(hora)){
+                System.out.println("Acceso DENEGADO");
+                return;
             }
+
 
             totalRegistros++;
 
@@ -46,7 +58,8 @@ public class Main {
         System.out.println("Permitidos: " + totalPermitidos);
         System.out.println("Denegados: " + totalDenegados);
 
-        double porcentajePermitidos = 0; //Falta hacer el calculo de porcentaje
-        System.out.println("Porcentaje permitidos: 2f%%"+ porcentajePermitidos+"%");
+        double porcentajePermitidos = ((double) totalPermitidos/100)*10; //Falta hacer el calculo de porcentaje
+        System.out.println("Porcentaje permitidos:"+porcentajePermitidos);
+
     }
 }
