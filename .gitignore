@@ -141,3 +141,11 @@ hs_err_pid*
 replay_pid*
 
 # End of https://www.toptal.com/developers/gitignore/api/java,intellij
+/prog-str-examen-u2-2c.iml
+/ExamenU2/.idea/
+/ExamenU2/.gitignore
+/ExamenU2/ExamenU2.iml
+/.idea/.gitignore
+/.idea/misc.xml
+/.idea/modules.xml
+/.idea/vcs.xml
