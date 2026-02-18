@@ -51,7 +51,7 @@ public class Main {
 
         if (totalRegistros > 0) {
             double porcentaje = (double) totalPermitidos / totalRegistros * 100;
-            System.out.println("Porcentaje permitidos: " + porcentaje + "%");
+            System.out.println("Porcentaje permitidos: %.2f%%\\n " + porcentaje );
         } else {
             System.out.println("No se procesaron registros.");
         }

@@ -18,7 +18,6 @@ public class U2Service {
     }
 
     public static boolean esHorarioPermitido(int hora) {
-        // Un método de servicio solo evalúa el parámetro, no usa Scanner.
         return (hora >= 7 && hora <= 19);
     }
 }
