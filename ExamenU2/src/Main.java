@@ -52,6 +52,7 @@ public class Main {
         System.out.println("Denegados: " + totalDenegados);
 
 
+
         double porcentaje=(cienPorcentaje /totalRegistros)*totalPermitidos; //Falta hacer el calculo de porcentaje
         System.out.println("Porcentaje permitidos: %"+ porcentaje );
     }
