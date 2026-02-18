@@ -1,10 +1,14 @@
  public class  U2Service {
+
+    private String id;
+    private int hora;
+
     // ID válido: exactamente 8 caracteres alfanuméricos (A-Z, a-z, 0-9), sin espacios.
     public static boolean esIdValido(String id) {
         if (id == null) return false;
 
         // sin espacios en blanco y longitud exacta
-        if () return false;
+        if (true) return false;
 
         // solo alfanumérico
         for (int i = 0; i < id.length(); i++) {

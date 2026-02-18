@@ -3,6 +3,9 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
+        int totalRegistros=0;
+        int totalPermitidos=0;
+        int totalDenegados=0;
 
 
         while (true) {
