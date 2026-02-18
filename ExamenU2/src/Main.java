@@ -1,48 +1,84 @@
 import java.util.Scanner;
 
+
 public class Main {
+
+
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
+        String id;
+        int hora;
+
+
+        int totalRegistros = 0;
+        int totalPermitidos = 0;
+        int totalDenegados = 0;
 
 
         while (true) {
-            System.out.print("ID (o FIN): ");
-            String id = sc.next();
+            System.out.print("Coloca el ID del estudiante o 'FIN' para terminar: ");
+            id = sc.next();
 
-            if (id.equalsIgnoreCase("FIN")) break;
 
-            System.out.print("Hora (0..23): ");
-            int hora = sc.nextInt();
-
-            // Si hora fuera 0..23 -> terminar main
-            if (hora < 0 || hora > 23) {
-                System.out.println("Hora inválida. Fin del programa.");
-                return;
+            if (id.equalsIgnoreCase("FIN")) {
+                break;
             }
 
-            // Si ID inválido -> continue (no cuenta como registro)
+
+            // vamos a validar el id
             if (!U2Service.esIdValido(id)) {
-                System.out.println("ID inválido");
+                System.out.println("ID valido");
                 continue;
             }
 
-            totalRegistros++;
 
-            if (U2Service.esHorarioPermitido(hora)) {
-                totalPermitidos++;
-                System.out.println("ACCESO PERMITIDO");
-            } else {
-                totalDenegados++;
-                System.out.println("ACCESO DENEGADO");
+            // aqui vamos a solicitar y validar la hora
+            System.out.print("pon tu hora de ingreso (0-23): ");
+            if (!sc.hasNextInt()) {
+                System.out.println("tu hora no es valida");
+                return;
             }
+
+
+            hora = sc.nextInt();
+
+
+            // vamos a validar el rango de la hora
+            if (hora < 0 || hora > 23) {
+                System.out.println("tu hora no es valida");
+                return;
+            }
+
+
+            // aqui vamo sa poner las reglas
+            totalRegistros++;
+            if (U2Service.esHorarioPermitido(hora)) {
+                System.out.println("Acceso valido");
+                totalPermitidos++;
+            } else {
+                System.out.println("Acceso no valido");
+                totalDenegados++;
+            }
+            System.out.println("**************************");
         }
 
-        System.out.println("=== RESUMEN ===");
-        System.out.println("Total registros: " + totalRegistros);
-        System.out.println("Permitidos: " + totalPermitidos);
-        System.out.println("Denegados: " + totalDenegados);
 
-        double porcentaje=0; //Falta hacer el calculo de porcentaje
-        System.out.println("Porcentaje permitidos: %"+ porcentaje);
+        // aqui vamos a poner ya los resultados
+        System.out.println("*********resultados*********");
+        System.out.println("Total registros: " + totalRegistros);
+        System.out.println("Total permitidos: " + totalPermitidos);
+        System.out.println("Total denegados: " + totalDenegados);
+
+
+        if (totalRegistros > 0) {
+            double porcentaje = ((double) totalPermitidos / totalRegistros) * 100;
+            System.out.printf("Porcentaje permitidos: %.2f%%\n", porcentaje);
+        } else {
+            System.out.println("Porcentaje permitidos: 0.00%");
+        }
+
+
+        sc.close();
     }
 }
+
