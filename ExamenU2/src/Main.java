@@ -6,7 +6,7 @@ public class Main {
         int totalRegistros = 0;
         int totalPermitidos = 0;
         int totalDenegados = 0;
-        int cien = 100;
+        int cienPorcentaje = 100;
 
 
         while (true) {
@@ -51,7 +51,8 @@ public class Main {
         System.out.println("Permitidos: " + totalPermitidos);
         System.out.println("Denegados: " + totalDenegados);
 
-        double porcentaje=(cien /totalRegistros)*totalPermitidos; //Falta hacer el calculo de porcentaje
+
+        double porcentaje=(cienPorcentaje /totalRegistros)*totalPermitidos; //Falta hacer el calculo de porcentaje
         System.out.println("Porcentaje permitidos: %"+ porcentaje );
     }
 }
