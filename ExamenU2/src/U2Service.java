@@ -1,30 +1,26 @@
- public class  U2Service {
-    // ID válido: exactamente 8 caracteres alfanuméricos (A-Z, a-z, 0-9), sin espacios.
-    public static boolean esIdValido(String id) {
-        if (id == null) return false;
+public class  U2Service {
 
-        // sin espacios en blanco y longitud exacta
-        if () return false;
+    static boolean esIdValido(String id) {
 
-        // solo alfanumérico
-        for (int i = 0; i < id.length(); i++) {
-            char ch = id.charAt(i);
-//            boolean esLetra =
-//                    (ch >= 'A' && ch <= 'Z') ||
-//                            (ch >= 'a' && ch <= 'z');
-            // Nota sobre charAt (ejemplo mini):
-            // char ch = id.charAt(0); // primer carácter
-            // boolean esDigito = (ch >= '0' && c <= '9');
-
-            if (!esDigito) return false;
+        if (id == null || id.isEmpty() || id.length() != 8) {
+            return false;
         }
 
-        return false; // TODO
+        for (int i = 0; i < 8; i++) {
+            char chat = id.charAt(i);
+            boolean esNumero = (chat >= '0' && chat <= '9');
+            boolean esMayuscula = (chat >= 'A' && chat <= 'Z');
+            boolean esMinuscula = (chat >= 'a' && chat <= 'z');
+
+            if (!esNumero && !esMayuscula && !esMinuscula) {
+                return false;
+            }
+        }
+
+        return true;
     }
 
-    // Horario permitido: 7..19 inclusive
-    public static boolean esHorarioPermitido(int hora) {
-        // permitido 7..19 inclusive
-        return false; // TODO
+    static boolean esHorarioPermitido(int hora) {
+        return (hora >= 7 && hora <= 19);
     }
 }
