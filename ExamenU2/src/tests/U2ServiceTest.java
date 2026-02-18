@@ -1,6 +1,3 @@
-
-
-
 public class U2ServiceTest {
 
     private static void assertTrue(boolean cond, String msg) {
