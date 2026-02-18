@@ -1,4 +1,4 @@
-# prog-str-examen-u2-2c
+ # prog-str-examen-u2-2c
 
 
 Sección B — Práctica (70%)

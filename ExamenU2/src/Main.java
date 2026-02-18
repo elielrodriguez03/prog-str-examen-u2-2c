@@ -3,13 +3,16 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-
+        U2Service U2Service= new U2Service();
+        int totalRegistros=0;
+        int totalPermitidos=0;
+        int totalDenegados=0;
 
         while (true) {
             System.out.print("ID (o FIN): ");
             String id = sc.next();
 
-            if (id.equalsIgnoreCase("FIN")) break;
+            if (id.contentEquals("FIN")) break;
 
             System.out.print("Hora (0..23): ");
             int hora = sc.nextInt();
@@ -25,7 +28,6 @@ public class Main {
                 System.out.println("ID inválido");
                 continue;
             }
-
             totalRegistros++;
 
             if (U2Service.esHorarioPermitido(hora)) {
@@ -42,7 +44,8 @@ public class Main {
         System.out.println("Permitidos: " + totalPermitidos);
         System.out.println("Denegados: " + totalDenegados);
 
-        double porcentaje=0; //Falta hacer el calculo de porcentaje
+        double porcentaje=0.0;
+        porcentaje = (100/totalRegistros)*totalPermitidos;
         System.out.println("Porcentaje permitidos: %"+ porcentaje);
     }
 }
