@@ -4,7 +4,7 @@
         if (id == null) return false;
 
         // sin espacios en blanco y longitud exacta
-        if (id.length() != 8) return false;
+        if () return false;
 
         // solo alfanumérico
         for (int i = 0; i < id.length(); i++) {
@@ -12,16 +12,19 @@
 //            boolean esLetra =
 //                    (ch >= 'A' && ch <= 'Z') ||
 //                            (ch >= 'a' && ch <= 'z');
-            boolean esDigito = (ch >= '0' && ch <= '9');
+            // Nota sobre charAt (ejemplo mini):
+            // char ch = id.charAt(0); // primer carácter
+            // boolean esDigito = (ch >= '0' && c <= '9');
 
             if (!esDigito) return false;
         }
 
-        return true;
+        return false; // TODO
     }
 
     // Horario permitido: 7..19 inclusive
     public static boolean esHorarioPermitido(int hora) {
-        return hora >= 7 && hora <= 19;
+        // permitido 7..19 inclusive
+        return false; // TODO
     }
 }
