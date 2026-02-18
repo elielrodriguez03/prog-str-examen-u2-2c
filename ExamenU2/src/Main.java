@@ -4,6 +4,10 @@ public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
+        double totalRegistros=0;
+        double totalPermitidos=0;
+        int totalDenegados=0;
+        int hora;
 
         while (true) {
             System.out.print("ID (o FIN): ");
@@ -12,7 +16,12 @@ public class Main {
             if (id.equalsIgnoreCase("FIN")) break;
 
             System.out.print("Hora (0..23): ");
-            int hora = sc.nextInt();
+            if (sc.hasNextInt()){
+                hora = sc.nextInt();
+            } else {
+                System.out.println("Hora invalida");
+                return;
+            }
 
             // Si hora fuera 0..23 -> terminar main
             if (hora < 0 || hora > 23) {
@@ -42,7 +51,9 @@ public class Main {
         System.out.println("Permitidos: " + totalPermitidos);
         System.out.println("Denegados: " + totalDenegados);
 
-        double porcentaje=0; //Falta hacer el calculo de porcentaje
+        double porcentaje;
+        porcentaje = (totalRegistros / totalPermitidos ) * 0.10;
+
         System.out.println("Porcentaje permitidos: %"+ porcentaje);
     }
 }
