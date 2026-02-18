@@ -11,7 +11,7 @@ public static void main(String[] args) {
 
     double porcentajePermitidos = 0;
     while (true) {
-        System.out.println("Ingrese el ID del estudiante (o 'FIN' para terminar): ");
+        System.out.println("Ingrese el ID del estudiante (o (FIN) para terminar): ");
         String id = leer.nextLine();
 
 
@@ -21,15 +21,15 @@ public static void main(String[] args) {
 
 
         if (!U2Service.esIdValido(id)) {
-            System.out.println("ID inválido");
+            System.out.println("ID ingresado es inválido");
             continue;
         }
 
-        System.out.print("Ingrese la hora de ingreso (0-23): ");
+        System.out.print("Ingrese la hora de ingreso (El rango de horas es 0h - 23h): ");
 
 
         if (!leer.hasNextInt()) {
-            System.out.println("Hora inválida");
+            System.out.println("La hora ingresada es inválida");
             return;
         }
 
