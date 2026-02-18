@@ -5,13 +5,19 @@ public class Main {
         Scanner sc = new Scanner(System.in);
 
 
+        int totalRegistros=0;
+        int totalDenegados=0;
+        int totalPermitidos=0;
+
+
+
         while (true) {
-            System.out.print("ID (o FIN): ");
+            System.out.print("Ingresa ID (o FIN para terminar): ");
             String id = sc.next();
 
             if (id.equalsIgnoreCase("FIN")) break;
 
-            System.out.print("Hora (0..23): ");
+            System.out.print("Hora de ingreso (0 - 23): ");
             int hora = sc.nextInt();
 
             // Si hora fuera 0..23 -> terminar main
@@ -26,6 +32,7 @@ public class Main {
                 continue;
             }
 
+
             totalRegistros++;
 
             if (U2Service.esHorarioPermitido(hora)) {
@@ -37,12 +44,14 @@ public class Main {
             }
         }
 
+
+
         System.out.println("=== RESUMEN ===");
         System.out.println("Total registros: " + totalRegistros);
         System.out.println("Permitidos: " + totalPermitidos);
         System.out.println("Denegados: " + totalDenegados);
 
-        double porcentaje=0; //Falta hacer el calculo de porcentaje
+        double porcentaje = totalPermitidos/totalRegistros; //Falta hacer el calculo de porcentaje
         System.out.println("Porcentaje permitidos: %"+ porcentaje);
     }
 }
