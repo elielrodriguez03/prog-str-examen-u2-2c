@@ -5,6 +5,9 @@ public class Main {
         Scanner sc = new Scanner(System.in);
 
 
+        int totalRegistros =0;
+        int totalPermitidos=0;
+        int totalDenegados=0;
         while (true) {
             System.out.print("ID (o FIN): ");
             String id = sc.next();
@@ -42,7 +45,9 @@ public class Main {
         System.out.println("Permitidos: " + totalPermitidos);
         System.out.println("Denegados: " + totalDenegados);
 
-        double porcentaje=0; //Falta hacer el calculo de porcentaje
+        double porcentaje= 0;
+        porcentaje = totalRegistros/totalPermitidos;
+                //Falta hacer el calculo de porcentaje
         System.out.println("Porcentaje permitidos: %"+ porcentaje);
     }
 }
