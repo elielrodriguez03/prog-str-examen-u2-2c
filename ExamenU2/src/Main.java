@@ -3,7 +3,10 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-
+        int totalRegistros = 0;
+        int totalPermitidos = 0;
+        int totalDenegados = 0;
+        double porcentaje = 0;
 
         while (true) {
             System.out.print("ID (o FIN): ");
@@ -37,12 +40,17 @@ public class Main {
             }
         }
 
+
         System.out.println("=== RESUMEN ===");
         System.out.println("Total registros: " + totalRegistros);
         System.out.println("Permitidos: " + totalPermitidos);
         System.out.println("Denegados: " + totalDenegados);
-
-        double porcentaje=0; //Falta hacer el calculo de porcentaje
-        System.out.println("Porcentaje permitidos: %"+ porcentaje);
+        if (totalRegistros > 0) {
+            porcentaje = ((double) totalPermitidos / totalRegistros) * 100;
+        }
+        System.out.println("Porcentaje permitidos: " + porcentaje + "%");
+        System.out.println("Porcentaje permitidos: %" + porcentaje);
     }
+
+
 }
