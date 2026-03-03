@@ -41,6 +41,7 @@ public class Main {
         }
 
 
+
         System.out.println("=== RESUMEN ===");
         System.out.println("Total registros: " + totalRegistros);
         System.out.println("Permitidos: " + totalPermitidos);
